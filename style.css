@@ -34,8 +34,8 @@ html, body {
 /* PIN Input Styling */
 .pin-container {
   position: absolute;
-  top: 25%; /* Adjust this to reposition the PIN boxes */
-  left: 10%;
+  top: 32%; /* Adjust this to reposition the PIN boxes */
+  left: 18%;
   transform: translate(-50%, -50%);
   display: flex;
   gap: 15px;
@@ -43,9 +43,9 @@ html, body {
 }
 
 .pin-box {
-  width: 50px;
-  height: 60px;
-  border-radius: 8px;
+  width: 35px;
+  height: 50px;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.85);
   font-size: 36px;
   text-align: center;
