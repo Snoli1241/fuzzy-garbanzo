@@ -40,7 +40,7 @@ html, body {
   left: 26%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 10px;
+  gap: 9px;
   z-index: 3;
 }
 
@@ -54,7 +54,7 @@ html, body {
   line-height: 60px;
   color: black;
   font-weight: bold;
-  border: 1.5px grey; /* Thin black border */
+  border: 2px solid black; /* Thin black border */
 }
 
 .pin-hidden-input {
