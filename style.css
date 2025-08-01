@@ -14,8 +14,9 @@ html, body {
   user-select: none;
 }
 
-/* Default screen layout */
-.screen {
+/* Screens 1 and 2: fullscreen locked */
+#screen1,
+#screen2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -25,7 +26,7 @@ html, body {
   overflow: hidden;
 }
 
-/* ✅ Allow scroll on screen3 only */
+/* Screen 3: scrollable */
 #screen3 {
   position: relative;
   width: 100%;
@@ -35,13 +36,15 @@ html, body {
   touch-action: auto;
 }
 
-/* ✅ Prevent image2 cutoff */
+/* Prevent image2 cutoff */
 #screen2 .background {
-  padding-bottom: env(safe-area-inset-bottom); /* iPhone bottom inset */
+  padding-bottom: env(safe-area-inset-bottom);
   pointer-events: auto;
+  position: relative;
+  top: -5%; /* Lifts image slightly */
 }
 
-/* Prevent clicks on image1 and image3 */
+/* Prevent taps on background for screens 1 and 3 */
 #screen1 .background,
 #screen3 .background {
   pointer-events: none;
@@ -49,8 +52,8 @@ html, body {
 
 .background {
   width: 100%;
-  height: auto; /* ✅ Natural height for image3 */
-  object-fit: contain; /* ✅ Show full image without cropping */
+  height: auto;
+  object-fit: contain;
   position: relative;
   z-index: 1;
   -webkit-user-drag: none;
@@ -59,6 +62,17 @@ html, body {
   touch-action: none;
 }
 
+/* Tap area for going back on screen3 */
+.back-button-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  z-index: 5;
+}
+
+/* Hidden screens */
 .hidden {
   display: none;
 }
