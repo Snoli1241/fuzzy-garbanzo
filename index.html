@@ -9,84 +9,31 @@
   <title>Secret App</title>
 </head>
 <body>
+  <!-- Screen 1: Password Input -->
   <div id="screen1" class="screen">
-    <img src="image1.jpeg" class="background" alt="Background Image">
-    <div class="dot-container" id="dotContainer"></div>
-    <div class="keypad">
-      <button onclick="enterDigit(1)">1</button>
-      <button onclick="enterDigit(2)">2</button>
-      <button onclick="enterDigit(3)">3</button>
-      <button onclick="enterDigit(4)">4</button>
-      <button onclick="enterDigit(5)">5</button>
-      <button onclick="enterDigit(6)">6</button>
-      <button onclick="enterDigit(7)">7</button>
-      <button onclick="enterDigit(8)">8</button>
-      <button onclick="enterDigit(9)">9</button>
-      <button onclick="clearInput()">←</button>
-      <button onclick="enterDigit(0)">0</button>
-      <button onclick="clearAll()">C</button>
-    </div>
+    <img src="image1.jpeg" alt="First Image" class="background">
+    <input
+      id="passwordInput"
+      type="tel"
+      maxlength="4"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      class="password-input"
+      placeholder="••••"
+      oninput="checkPassword(this.value)"
+    >
   </div>
 
+  <!-- Screen 2: Tap to go to image3 -->
   <div id="screen2" class="screen hidden">
-    <img src="image2.jpeg" class="background" alt="Second Image" onclick="goToThirdImage(event)">
+    <img src="image2.jpeg" alt="Second Image" class="background" onclick="goToThirdImage(event)">
   </div>
 
+  <!-- Screen 3: Final image -->
   <div id="screen3" class="screen hidden">
-    <img src="image3.jpeg" class="background" alt="Third Image">
+    <img src="image3.jpeg" alt="Third Image" class="background">
   </div>
 
-  <script>
-    const password = "1234";
-    let input = "";
-
-    const dotPositions = [
-      { top: "30%", left: "25%" },
-      { top: "40%", left: "45%" },
-      { top: "50%", left: "35%" },
-      { top: "60%", left: "55%" }
-    ];
-
-    function enterDigit(digit) {
-      if (input.length >= 4) return;
-      input += digit;
-      renderDots();
-      if (input === password) {
-        setTimeout(() => {
-          document.getElementById("screen1").classList.add("hidden");
-          document.getElementById("screen2").classList.remove("hidden");
-        }, 300);
-      }
-    }
-
-    function renderDots() {
-      const container = document.getElementById("dotContainer");
-      container.innerHTML = "";
-      for (let i = 0; i < input.length; i++) {
-        const dot = document.createElement("div");
-        dot.className = "dot";
-        dot.style.top = dotPositions[i].top;
-        dot.style.left = dotPositions[i].left;
-        container.appendChild(dot);
-      }
-    }
-
-    function clearInput() {
-      input = input.slice(0, -1);
-      renderDots();
-    }
-
-    function clearAll() {
-      input = "";
-      renderDots();
-    }
-
-    function goToThirdImage(e) {
-      // You can limit to a specific region here if you want
-      // e.g. only trigger if user taps center
-      document.getElementById("screen2").classList.add("hidden");
-      document.getElementById("screen3").classList.remove("hidden");
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
