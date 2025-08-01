@@ -5,20 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
-  <title>My Web App</title>
+  <title>Secret App</title>
 </head>
 <body>
-  <div class="container">
-    <img id="mainImage" src="image1.jpg" alt="Main Image">
-    <button onclick="changeImage()">Next</button>
+  <div id="screen1" class="screen">
+    <img src="image1.jpg" class="background" alt="Background Image">
+    <div class="dot-container" id="dotContainer"></div>
+    <div class="keypad">
+      <button onclick="enterDigit(1)">1</button>
+      <button onclick="enterDigit(2)">2</button>
+      <button onclick="enterDigit(3)">3</button>
+      <button onclick="enterDigit(4)">4</button>
+      <button onclick="enterDigit(5)">5</button>
+      <button onclick="enterDigit(6)">6</button>
+      <button onclick="enterDigit(7)">7</button>
+      <button onclick="enterDigit(8)">8</button>
+      <button onclick="enterDigit(9)">9</button>
+      <button onclick="clearInput()">←</button>
+      <button onclick="enterDigit(0)">0</button>
+      <button onclick="clearAll()">C</button>
+    </div>
+  </div>
+
+  <div id="screen2" class="screen hidden">
+    <img src="image2.jpg" class="background" alt="Second Image" onclick="goToThirdImage(event)">
+  </div>
+
+  <div id="screen3" class="screen hidden">
+    <img src="image3.jpg" class="background" alt="Third Image">
   </div>
 
   <script>
-    function changeImage() {
-      const img = document.getElementById("mainImage");
-      img.src = img.src.includes("image1.jpg") ? "image2.jpg" : "image1.jpg";
+    const password = "1234";
+    let input = "";
+
+    const dotPositions = [
+      { top: "30%", left: "25%" },
+      { top: "40%", left: "45%" },
+      { top: "50%", left: "35%" },
+      { top: "60%", left: "55%" }
+    ];
+
+    function enterDigit(digit) {
+      if (input.length >= 4) return;
+      input += digit;
+      renderDots();
+      if (input === password) {
+        setTimeout(() => {
+          document.getElementById("screen1").classList.add("hidden");
+          document.getElementById("screen2").classList.remove("hidden");
+        }, 300);
+      }
+    }
+
+    function renderDots() {
+      const container = document.getElementById("dotContainer");
+      container.innerHTML = "";
+      for (let i = 0; i < input.length; i++) {
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        dot.style.top = dotPositions[i].top;
+        dot.style.left = dotPositions[i].left;
+        container.appendChild(dot);
+      }
+    }
+
+    function clearInput() {
+      input = input.slice(0, -1);
+      renderDots();
+    }
+
+    function clearAll() {
+      input = "";
+      renderDots();
+    }
+
+    function goToThirdImage(e) {
+      // You can limit to a specific region here if you want
+      // e.g. only trigger if user taps center
+      document.getElementById("screen2").classList.add("hidden");
+      document.getElementById("screen3").classList.remove("hidden");
     }
   </script>
 </body>
