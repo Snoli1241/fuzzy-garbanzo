@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  background-color: #f4f5fa; /* ✅ Correct background color under status bar */
+  background-color: f0f3f8;
   font-family: -apple-system, sans-serif;
   overflow: hidden;
   touch-action: none;
