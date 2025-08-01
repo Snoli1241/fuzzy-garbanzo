@@ -37,10 +37,10 @@ html, body {
 .pin-container {
   position: absolute;
   top: 28%; /* Adjust this to reposition the PIN boxes */
-  left: 25%;
+  left: 26%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 12px;
+  gap: 11px;
   z-index: 3;
 }
 
@@ -54,8 +54,7 @@ html, body {
   line-height: 60px;
   color: black;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border: 1px solid black; /* Thin black border */
+  border: 2px solid black; /* Thin black border */
 }
 
 .pin-hidden-input {
