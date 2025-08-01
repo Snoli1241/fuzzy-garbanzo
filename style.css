@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  background-color: f0f3f8;
+  background-color: #f0f3f8; /* ✅ Fixed: added # */
   font-family: -apple-system, sans-serif;
   overflow: hidden;
   touch-action: none;
@@ -14,6 +14,7 @@ html, body {
   user-select: none;
 }
 
+/* Default fullscreen layout */
 .screen {
   position: fixed;
   top: 0;
@@ -23,29 +24,37 @@ html, body {
   touch-action: none;
 }
 
+/* ✅ Override only for screen3 to allow scroll */
+#screen3 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  background-color: #f0f3f8;
+  touch-action: auto;
+}
+
 /* Only disable interaction on image1 and image3 */
 #screen1 .background,
 #screen3 .background {
   pointer-events: none;
 }
 
+/* screen2 must stay tappable */
+#screen2 .background {
+  pointer-events: auto;
+}
+
 .background {
   width: 100%;
-  height: 100%;
+  height: auto; /* ✅ Allow image3 to grow and scroll */
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 1;
   -webkit-user-drag: none;
   user-drag: none;
   user-select: none;
   touch-action: none;
-}
-
-/* Don't apply pointer-events:none to screen2 so it stays tappable */
-#screen2 .background {
-  pointer-events: auto;
 }
 
 .hidden {
