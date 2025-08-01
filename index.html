@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+  <title>My Web App</title>
+</head>
+<body>
+  <div class="container">
+    <img id="mainImage" src="image1.jpg" alt="Main Image">
+    <button onclick="changeImage()">Next</button>
+  </div>
+
+  <script>
+    function changeImage() {
+      const img = document.getElementById("mainImage");
+      img.src = img.src.includes("image1.jpg") ? "image2.jpg" : "image1.jpg";
+    }
+  </script>
+</body>
+</html>
