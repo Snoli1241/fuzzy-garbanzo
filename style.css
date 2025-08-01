@@ -36,7 +36,7 @@ html, body {
 /* PIN Input Styling */
 .pin-container {
   position: absolute;
-  top: 28%; /* Adjust this to reposition the PIN boxes */
+  top: 30%; /* Adjust this to reposition the PIN boxes */
   left: 26%;
   transform: translate(-50%, -50%);
   display: flex;
