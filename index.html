@@ -9,19 +9,26 @@
   <title>Secret App</title>
 </head>
 <body>
-  <!-- Screen 1: Password Input -->
+
+  <!-- Screen 1: PIN Input -->
   <div id="screen1" class="screen">
     <img src="image1.jpeg" alt="First Image" class="background">
-    <input
-      id="passwordInput"
-      type="tel"
-      maxlength="4"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      class="password-input"
-      placeholder="••••"
-      oninput="checkPassword(this.value)"
-    >
+    <div class="pin-container">
+      <div class="pin-box" id="box1"></div>
+      <div class="pin-box" id="box2"></div>
+      <div class="pin-box" id="box3"></div>
+      <div class="pin-box" id="box4"></div>
+      <input
+        id="passwordInput"
+        type="tel"
+        maxlength="4"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        class="pin-hidden-input"
+        autofocus
+        oninput="handlePinInput(this.value)"
+      >
+    </div>
   </div>
 
   <!-- Screen 2: Tap to go to image3 -->
