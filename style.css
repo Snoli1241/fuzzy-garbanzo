@@ -34,11 +34,11 @@ html, body {
 /* PIN Input Styling */
 .pin-container {
   position: absolute;
-  top: 25%; /* Adjust this to reposition the PIN boxes */
+  top: 28%; /* Adjust this to reposition the PIN boxes */
   left: 25%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 15px;
+  gap: 12px;
   z-index: 3;
 }
 
