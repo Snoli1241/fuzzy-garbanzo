@@ -9,14 +9,18 @@ html, body {
   background-color: black;
   font-family: -apple-system, sans-serif;
   overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
 }
 
 .screen {
-  position: fixed; /* Use fixed to help fill status bar area */
+  position: fixed; /* Fullscreen display */
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  touch-action: none; /* Prevent swiping */
 }
 
 .background {
@@ -27,6 +31,11 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1;
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  touch-action: none;
+  pointer-events: none; /* Makes images untouchable */
 }
 
 .hidden {
@@ -48,13 +57,11 @@ html, body {
   width: 42px;
   height: 50px;
   border-radius: 5px;
-  background-color: #ffffff; /* Fully opaque white */
+  background-color: #ffffff;
   font-size: 36px;
-  text-align: center;
-  line-height: 60px;
   color: black;
   font-weight: bold;
-  border: 2px solid black; /* Thin black border */
+  border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
