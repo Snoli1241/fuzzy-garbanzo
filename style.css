@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  background-color: black;
+  background-color: #f4f5fa; /* ✅ Correct background color under status bar */
   font-family: -apple-system, sans-serif;
   overflow: hidden;
   touch-action: none;
@@ -15,12 +15,18 @@ html, body {
 }
 
 .screen {
-  position: fixed; /* Fullscreen display */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  touch-action: none; /* Prevent swiping */
+  touch-action: none;
+}
+
+/* Only disable interaction on image1 and image3 */
+#screen1 .background,
+#screen3 .background {
+  pointer-events: none;
 }
 
 .background {
@@ -35,7 +41,11 @@ html, body {
   user-drag: none;
   user-select: none;
   touch-action: none;
-  pointer-events: none; /* Makes images untouchable */
+}
+
+/* Don't apply pointer-events:none to screen2 so it stays tappable */
+#screen2 .background {
+  pointer-events: auto;
 }
 
 .hidden {
@@ -45,7 +55,7 @@ html, body {
 /* PIN Input Styling */
 .pin-container {
   position: absolute;
-  top: 29.5%; /* Adjust this to reposition the PIN boxes */
+  top: 29.5%;
   left: 26%;
   transform: translate(-50%, -50%);
   display: flex;
