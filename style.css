@@ -59,7 +59,12 @@ html, body {
   -webkit-user-drag: none;
   user-drag: none;
   user-select: none;
-  touch-action: none;
+}
+
+/* ✅ Allow scrolling on image3 */
+#screen3 .background {
+  touch-action: auto;
+  pointer-events: auto; /* Allow touch interactions like scroll */
 }
 
 /* Tap area for going back on screen3 */
