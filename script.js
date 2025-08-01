@@ -1,5 +1,5 @@
 function handlePinInput(value) {
-  const correctCode = "1234;
+  const correctCode = "1739";
 
   for (let i = 0; i < 4; i++) {
     const box = document.getElementById(`box${i + 1}`);
