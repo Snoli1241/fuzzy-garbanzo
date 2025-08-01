@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  background-color: #f0f3f8; /* ✅ Fixed: added # */
+  background-color: #f0f3f8;
   font-family: -apple-system, sans-serif;
   overflow: hidden;
   touch-action: none;
@@ -14,7 +14,7 @@ html, body {
   user-select: none;
 }
 
-/* Default fullscreen layout */
+/* Default screen layout */
 .screen {
   position: fixed;
   top: 0;
@@ -22,9 +22,10 @@ html, body {
   width: 100vw;
   height: 100vh;
   touch-action: none;
+  overflow: hidden;
 }
 
-/* ✅ Override only for screen3 to allow scroll */
+/* ✅ Allow scroll on screen3 only */
 #screen3 {
   position: relative;
   width: 100%;
@@ -34,21 +35,22 @@ html, body {
   touch-action: auto;
 }
 
-/* Only disable interaction on image1 and image3 */
+/* ✅ Prevent image2 cutoff */
+#screen2 .background {
+  padding-bottom: env(safe-area-inset-bottom); /* iPhone bottom inset */
+  pointer-events: auto;
+}
+
+/* Prevent clicks on image1 and image3 */
 #screen1 .background,
 #screen3 .background {
   pointer-events: none;
 }
 
-/* screen2 must stay tappable */
-#screen2 .background {
-  pointer-events: auto;
-}
-
 .background {
   width: 100%;
-  height: auto; /* ✅ Allow image3 to grow and scroll */
-  object-fit: cover;
+  height: auto; /* ✅ Natural height for image3 */
+  object-fit: contain; /* ✅ Show full image without cropping */
   position: relative;
   z-index: 1;
   -webkit-user-drag: none;
