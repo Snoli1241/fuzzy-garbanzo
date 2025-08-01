@@ -8,8 +8,8 @@ html, body {
   height: 100%;
   background-color: #f0f3f8;
   font-family: -apple-system, sans-serif;
-  overflow: hidden;
-  touch-action: none;
+  overflow-x: hidden;            /* ✅ allow vertical scroll */
+  touch-action: manipulation;    /* ✅ allow scroll/tap */
   overscroll-behavior: none;
   user-select: none;
 }
@@ -64,7 +64,7 @@ html, body {
 /* ✅ Allow scrolling on image3 */
 #screen3 .background {
   touch-action: auto;
-  pointer-events: auto; /* Allow touch interactions like scroll */
+  pointer-events: auto;
 }
 
 /* Tap area for going back on screen3 */
