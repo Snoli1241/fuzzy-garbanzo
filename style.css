@@ -65,7 +65,7 @@ html, body {
 /* Tap area for going back on screen3 */
 .back-button-area {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 80px;
   height: 80px;
